@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      /* Universal Selector */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Primary color in root selector */
+      :root {
+        --primary-color: #ff6b6b;
+      }
+
+      /* Body styles */
+      body {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: #2f2f2f;
+        background-image: url("./img/stacked-steps-haikei.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        animation: rotate 10s infinite alternate-reverse linear;
+      }
+
+      /* Animation keyframes */
+      @keyframes rotate {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+
+      /* Pseudo-element after body */
+      body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.09);
+      }
+
+      /* Login card styles */
+      .login-card {
+        position: relative;
+        z-index: 1;
+        height: 100vh;
+        width: 100%;
+        max-width: 350px;
+        margin: 0;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(10px);
+        text-align: center;
+      }
+
+      .login-card > h2 {
+        font-size: 2rem;
+        margin: 0 0 10px;
+        margin-top: 10%;
+        color: white;
+      }
+
+      .login-card > p {
+        font-size: 1rem;
+        margin: 0 0 20px;
+        color: white;
+      }
+
+      /* Form styles */
+      .form {
+        width: 100%;
+        /* margin: 0 auto; */
+        /* margin-top: 50%; */
+        display: grid;
+        gap: 15px;
+      }
+
+      .form :is(input, button) {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .form input {
+        color: white;
+        background: rgba(255, 255, 255, 0.09);
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        padding: 10px;
+      }
+
+      .form input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .form button {
+        cursor: pointer;
+        padding: 10px;
+        background: var(--primary-color);
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        transition: background 0.3s ease;
+      }
+
+      .form button:hover {
+        background: darken(var(--primary-color), 10%);
+      }
+
+      .form .forgot-password {
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        text-align: left;
+        text-decoration: none;
+        margin-bottom: 10px;
+      }
+
+      /* Responsive design */
+      @media (min-width: 448px) {
+        .login-card {
+          position: relative;
+          margin: auto;
+          height: auto;
+          width: 400px;
+          max-width: 400px;
+          min-width: 350px;
+          padding: 20px;
+          border-radius: 10px;
+        }
+      }
+
+      @media (min-width: 628px) {
+        .login-card {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          bottom: auto;
+          padding: 40px;
+          width: auto;
+          height: 100vh;
+          max-width: 450px;
+          min-width: 350px;
+          display: flex;
+          border-radius: 0 10px 10px 0;
+          flex-direction: column;
+          justify-content: center;
+          transform: translateY(-50%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-card">
+      <h2>Login</h2>
+      <p>Enter your credentials</p>
+      <form class="form">
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <div class="forgot-password">Forgot your password?</div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
